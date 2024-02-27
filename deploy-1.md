@@ -47,3 +47,39 @@ This section defines how the Deployment selects which Pods to manage. It uses a 
 This section defines the template for the Pods that the Deployment will manage. It sets the labels for the Pods to `app: busybox`, which matches the selector defined earlier. Inside the template's `spec`, it specifies a single container named `busybox-container` running the `busybox` image. The container runs the command `sleep 3600`, which makes the container sleep for 3600 seconds (1 hour).
 
 Overall, this YAML file defines a Deployment named `deploy-1` with 3 replicas. Each replica runs a Pod with a single container running the `busybox` image and executing the command `sleep 3600`.
+
+
+
+For Run ----------------
+===========================================================================================================================
+To run and test this deployment, you can follow these steps:
+
+Save the corrected code in a file named deployment.yaml.
+Run the following command to create the deployment:
+bash
+Copy code
+kubectl apply -f deployment.yaml
+To check the status of the deployment, run:
+bash
+Copy code
+kubectl get deployments
+To check the status of the pods created by the deployment, run:
+bash
+Copy code
+kubectl get pods
+To check the logs of a specific pod, run:
+bash
+Copy code
+kubectl logs <pod-name>
+Replace <pod-name> with the name of one of the pods created by the deployment.
+
+To delete the deployment and its associated pods, run:
+bash
+Copy code
+kubectl delete -f deployment.yaml
+To check if the deployment and pods have been deleted, run:
+bash
+Copy code
+kubectl get deployments
+kubectl get pods
+If the deployment and pods have been deleted, they will not appear in the output of the kubectl get deployments and kubectl get pods commands.
